@@ -45,9 +45,9 @@ class Menu extends React.Component {
       <Container>
         <WatermarkCircle />
         <WatermarkTriangle />
-        <Header>
-          <Title>Price Earnings Ratio</Title>
-        </Header>
+        <Title fontSize="large" textAlign="left">
+          Price Earnings Ratio
+        </Title>
         <Body>
           <Description>
             We can help you calculate the price-earnings ratio for any given company. Choose

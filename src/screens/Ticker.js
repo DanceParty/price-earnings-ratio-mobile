@@ -112,7 +112,8 @@ class Ticker extends React.Component {
                   onPress={() => {
                     this.props.navigation.navigate("Results", {
                       stockPrice: this.state.stockPrice,
-                      earningsPerShare: this.state.eps
+                      earningsPerShare: this.state.eps,
+                      companyName: this.state.company.companyName
                     });
                   }}
                 >
