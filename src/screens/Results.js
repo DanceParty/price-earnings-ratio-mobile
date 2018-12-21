@@ -55,11 +55,13 @@ class Results extends React.Component {
   };
 
   getBodyText = priceEarningsRatio => {
+    const { companyName } = this.props.navigation.state.params;
+    const introText = companyName ? `${companyName}'s` : "a";
     if (priceEarningsRatio > 25) {
       return (
         <BodyText>
-          According to Investopedia, a price-earnings ratio of {priceEarningsRatio} is
-          considered <HighlightedBodyText color={successGreen}>higher</HighlightedBodyText>{" "}
+          According to Investopedia, {introText} price-earnings ratio of {priceEarningsRatio}{" "}
+          is considered <HighlightedBodyText color={successGreen}>higher</HighlightedBodyText>{" "}
           than the market average. This can mean that the stock is currently overvalued, or
           investors are expecting higher earnings in the future.
         </BodyText>
@@ -67,8 +69,8 @@ class Results extends React.Component {
     } else if (priceEarningsRatio < 20) {
       return (
         <BodyText>
-          According to Investopedia, a price-earnings ratio of {priceEarningsRatio} is
-          considered <HighlightedBodyText color={dangerRed}>lower</HighlightedBodyText> than
+          According to Investopedia, {introText} price-earnings ratio of {priceEarningsRatio}{" "}
+          is considered <HighlightedBodyText color={dangerRed}>lower</HighlightedBodyText> than
           the market average. This can mean that the stock is currently undervalued, or the
           company is doing exceptionally well compared to past trends.
         </BodyText>
@@ -76,8 +78,8 @@ class Results extends React.Component {
     } else {
       return (
         <BodyText>
-          According to Investopedia, a price-earnings ratio of {priceEarningsRatio} is
-          considered <HighlightedBodyText color={dangerRed}>average</HighlightedBodyText> in
+          According to Investopedia, {introText} price-earnings ratio of {priceEarningsRatio}{" "}
+          is considered <HighlightedBodyText color={dangerRed}>average</HighlightedBodyText> in
           the current market.
         </BodyText>
       );
@@ -95,8 +97,7 @@ class Results extends React.Component {
   };
 
   render() {
-    const { stockPrice, earningsPerShare } = this.props.navigation.state.params;
-    console.log(stockPrice, earningsPerShare);
+    const { stockPrice, earningsPerShare, companyName } = this.props.navigation.state.params;
     const priceEarningsRatio = (parseFloat(stockPrice) / parseFloat(earningsPerShare)).toFixed(
       2
     );
