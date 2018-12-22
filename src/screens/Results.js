@@ -6,6 +6,7 @@ import { Feather, MaterialIcons } from "@expo/vector-icons";
 import WatermarkCircle from "../components/WatermarkCircle";
 import WatermarkTriangle from "../components/WatermarkTriangle";
 import { lightBlue, textBlack, lightOrange, successGreen, dangerRed } from "../utils/colors";
+import { text } from "../utils/text";
 
 import Container from "../components/Container";
 import Header from "../components/Header";
@@ -16,7 +17,6 @@ import Button from "../components/Button";
 import ButtonStart from "../components/ButtonStart";
 import ButtonMiddle from "../components/ButtonMiddle";
 import ButtonText from "../components/ButtonText";
-import { text } from "../utils/text";
 
 const Subtitle = styled.Text`
   font-size: 14px;
@@ -55,46 +55,34 @@ class Results extends React.Component {
     }
   };
 
-  getBodyText = priceEarningsRatio => {
-    const { companyName } = this.props.navigation.state.params;
-    const introText = companyName ? `${companyName}'s` : "a";
-    if (priceEarningsRatio > 25) {
-      return (
-        <BodyText>
-          According to Investopedia, {introText} price-earnings ratio of {priceEarningsRatio}{" "}
-          is considered <HighlightedBodyText color={successGreen}>higher</HighlightedBodyText>{" "}
-          than the market average. This can mean that the stock is currently overvalued, or
-          investors are expecting higher earnings in the future.
-        </BodyText>
-      );
-    } else if (priceEarningsRatio < 20) {
-      return (
-        <BodyText>
-          According to Investopedia, {introText} price-earnings ratio of {priceEarningsRatio}{" "}
-          is considered <HighlightedBodyText color={dangerRed}>lower</HighlightedBodyText> than
-          the market average. This can mean that the stock is currently undervalued, or the
-          company is doing exceptionally well compared to past trends.
-        </BodyText>
-      );
-    } else {
-      return (
-        <BodyText>
-          According to Investopedia, {introText} price-earnings ratio of {priceEarningsRatio}{" "}
-          is considered <HighlightedBodyText color={dangerRed}>average</HighlightedBodyText> in
-          the current market.
-        </BodyText>
-      );
-    }
+  getRangeText = priceEarningsRatio => {
+    return priceEarningsRatio > 25
+      ? text.results.body.rangeHigh
+      : priceEarningsRatio < 20
+      ? text.results.body.rangeLow
+      : text.results.body.rangeMid;
   };
 
-  getPriceEarningsRatioText = priceEarningsRatio => {
-    if (priceEarningsRatio > 25) {
-      return <TitleLarge color={successGreen}>{priceEarningsRatio}</TitleLarge>;
-    } else if (priceEarningsRatio < 20) {
-      return <TitleLarge color={dangerRed}>{priceEarningsRatio}</TitleLarge>;
-    } else {
-      return <TitleLarge color={textBlack}>{priceEarningsRatio}</TitleLarge>;
-    }
+  getColor = priceEarningsRatio => {
+    return priceEarningsRatio > 25
+      ? successGreen
+      : priceEarningsRatio < 20
+      ? dangerRed
+      : textBlack;
+  };
+
+  getBodyText = priceEarningsRatio => {
+    const { companyName } = this.props.navigation.state.params;
+    const company = companyName ? `${companyName}'s` : "a";
+    const middle = this.getRangeText(priceEarningsRatio);
+    const middleColor = this.getColor(priceEarningsRatio);
+    return (
+      <BodyText>
+        {text.results.body.intro(company, priceEarningsRatio)}{" "}
+        <HighlightedBodyText color={middleColor}>{middle}</HighlightedBodyText>{" "}
+        {text.results.body.end}
+      </BodyText>
+    );
   };
 
   render() {
@@ -111,7 +99,9 @@ class Results extends React.Component {
             <Title>{text.results.subtitle}</Title>
           </Header>
           <Body>
-            {this.getPriceEarningsRatioText(priceEarningsRatio)}
+            <TitleLarge color={this.getColor(priceEarningsRatio)}>
+              {priceEarningsRatio}
+            </TitleLarge>
             {this.getBodyText(priceEarningsRatio)}
           </Body>
           <Buttons justifyContent="center">
