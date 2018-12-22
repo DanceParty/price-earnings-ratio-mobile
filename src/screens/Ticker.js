@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { lightBlue, textBlack, lightOrange } from "../utils/colors";
 
+import Navigation from "../components/Navigation";
 import Container from "../components/Container";
 import Header from "../components/Header";
 import Body from "../components/Body";
@@ -18,7 +19,7 @@ const Search = styled.TextInput`
   width: 100%;
   height: 65px;
   background-color: #a8d5ff;
-  border-radius: 15;
+  border-radius: 5;
   padding-left: 15px;
   justify-content: center;
 `;
@@ -32,29 +33,7 @@ const Content = styled.Text`
 `;
 
 class Ticker extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    headerLeft: (
-      <TouchableOpacity
-        style={{
-          justifyContent: "center",
-          headerLayoutPreset: "center",
-          marginLeft: 15,
-          width: 40,
-          height: 40
-        }}
-        onPress={() => {
-          navigation.goBack();
-        }}
-      >
-        <Ionicons name="ios-arrow-round-back" size={42} color={textBlack} />
-      </TouchableOpacity>
-    ),
-    headerStyle: {
-      borderBottomWidth: 0,
-      backgroundColor: lightBlue
-    },
-    headerTintColor: textBlack
-  });
+  static navigationOptions = ({ navigation }) => Navigation(navigation);
 
   state = {
     searchText: "",

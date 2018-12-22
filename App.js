@@ -15,4 +15,10 @@ const AppNavigator = createStackNavigator({
   Ticker: { screen: Ticker }
 });
 
-export default createAppContainer(AppNavigator);
+const Navigator = createAppContainer(AppNavigator);
+
+export default class App extends React.Component {
+  render() {
+    return <Navigator />;
+  }
+}

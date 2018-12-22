@@ -3,32 +3,13 @@ import { Button, View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import { Ionicons } from "@expo/vector-icons";
 import { lightBlue, textBlack, darkOrange } from "../utils/colors";
+import { text } from "../utils/text";
+
+import Navigation from "../components/Navigation";
 import Calculator from "../components/Calculator";
 
 class StockPrice extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    headerLeft: (
-      <TouchableOpacity
-        style={{
-          justifyContent: "center",
-          headerLayoutPreset: "center",
-          marginLeft: 15,
-          width: 40,
-          height: 40
-        }}
-        onPress={() => {
-          navigation.goBack();
-        }}
-      >
-        <Ionicons name="ios-arrow-round-back" size={42} color={textBlack} />
-      </TouchableOpacity>
-    ),
-    headerStyle: {
-      borderBottomWidth: 0,
-      backgroundColor: lightBlue
-    },
-    headerTintColor: textBlack
-  });
+  static navigationOptions = ({ navigation }) => Navigation(navigation);
 
   state = {
     stockPrice: ""
@@ -57,8 +38,8 @@ class StockPrice extends React.Component {
     return (
       <Calculator
         value={this.state.stockPrice}
-        title="Enter the current stock price..."
-        secondaryText="Clear value"
+        title={text.stockPrice.title}
+        secondaryText={text.stockPrice.secondaryText}
         onPressSecondary={this.resetStockPrice}
         onPressNumber={this.onPressNumber}
         onPressNext={this.onPressNext}

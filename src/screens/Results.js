@@ -16,6 +16,7 @@ import Button from "../components/Button";
 import ButtonStart from "../components/ButtonStart";
 import ButtonMiddle from "../components/ButtonMiddle";
 import ButtonText from "../components/ButtonText";
+import { text } from "../utils/text";
 
 const Subtitle = styled.Text`
   font-size: 14px;
@@ -107,10 +108,7 @@ class Results extends React.Component {
           <WatermarkCircle />
           <WatermarkTriangle />
           <Header>
-            <Subtitle>Market Price / EPS = Price-Earnings Ratio</Subtitle>
-            <Title>
-              {stockPrice} / {earningsPerShare} =
-            </Title>
+            <Title>{text.results.subtitle}</Title>
           </Header>
           <Body>
             {this.getPriceEarningsRatioText(priceEarningsRatio)}
@@ -127,10 +125,10 @@ class Results extends React.Component {
               }}
             >
               <ButtonStart>
-                <Feather name="arrow-left" size={20} color={textBlack} />
+                <Feather name="home" size={20} color={textBlack} />
               </ButtonStart>
               <ButtonMiddle>
-                <ButtonText>Take me back home!</ButtonText>
+                <ButtonText>{text.buttons.home}</ButtonText>
               </ButtonMiddle>
             </Button>
           </Buttons>
