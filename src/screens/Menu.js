@@ -5,6 +5,7 @@ import { Feather, MaterialIcons } from "@expo/vector-icons";
 import WatermarkCircle from "../components/WatermarkCircle";
 import WatermarkTriangle from "../components/WatermarkTriangle";
 import { lightBlue, textBlack, lightOrange } from "../utils/colors";
+import { text } from "../utils/text";
 
 import Container from "../components/Container";
 import Header from "../components/Header";
@@ -46,37 +47,26 @@ class Menu extends React.Component {
         <WatermarkCircle />
         <WatermarkTriangle />
         <Title fontSize="large" textAlign="left">
-          Price Earnings Ratio
+          {text.menu.title}
         </Title>
         <Body>
-          <Description>
-            We can help you calculate the price-earnings ratio for any given company. Choose
-            the option that best fits your scenario below.
-          </Description>
+          <Description>{text.menu.body}</Description>
         </Body>
-        <Buttons justifyContent="space-between">
-          <Button activeOpacity={1} onPress={this.navigateToStockPrice}>
+        <Buttons justifyContent="space-around">
+          <Button activeOpacity={1} onPress={this.navigateToStockPrice} testID="eps-button">
             <ButtonStart>
               <Feather name="dollar-sign" size={20} color={textBlack} />
             </ButtonStart>
             <ButtonMiddle>
-              <ButtonText>I have the Earnings Per Share</ButtonText>
+              <ButtonText>{text.buttons.eps}</ButtonText>
             </ButtonMiddle>
           </Button>
-          <Button activeOpacity={1} onPress={this.navigateToTicker}>
+          <Button activeOpacity={1} onPress={this.navigateToTicker} testID="ticker-button">
             <ButtonStart>
               <MaterialIcons name="text-format" size={24} color={textBlack} />
             </ButtonStart>
             <ButtonMiddle>
-              <ButtonText>I have the ticker</ButtonText>
-            </ButtonMiddle>
-          </Button>
-          <Button activeOpacity={1}>
-            <ButtonStart>
-              <Feather name="x-circle" size={20} color={textBlack} />
-            </ButtonStart>
-            <ButtonMiddle>
-              <ButtonText>I don't have anything</ButtonText>
+              <ButtonText>{text.buttons.ticker}</ButtonText>
             </ButtonMiddle>
           </Button>
         </Buttons>
