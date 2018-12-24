@@ -27,7 +27,7 @@ function createProps(props) {
 describe("Results", () => {
   test("content is present", () => {
     const props = createProps({});
-    const { getByText, debug } = render(<Results {...props} />);
+    const { getByText } = render(<Results {...props} />);
 
     const per = String((parseFloat(stockPrice) / parseFloat(earningsPerShare)).toFixed(2));
     const introText = /According to Investopedia, Apple's price-earnings ratio of 40.56 is considered/;

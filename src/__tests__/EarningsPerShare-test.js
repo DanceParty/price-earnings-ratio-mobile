@@ -20,7 +20,7 @@ function createProps(props) {
 describe("Earnings Per Share - Calculator", () => {
   test("entering a value and pressing next", () => {
     const props = createProps({});
-    const { getByText, getByTestId, debug } = render(<EarningsPerShare {...props} />);
+    const { getByText, getByTestId } = render(<EarningsPerShare {...props} />);
     expect(getByText("Enter the earnings per share...")).toBeTruthy();
     expect(getByText("Clear value")).toBeTruthy();
     expect(getByText("$ 0")).toBeTruthy();
@@ -41,7 +41,7 @@ describe("Earnings Per Share - Calculator", () => {
 
   test("entering a value and pressing clear value", () => {
     const props = createProps({});
-    const { getByText, getByTestId, debug } = render(<EarningsPerShare {...props} />);
+    const { getByText, getByTestId } = render(<EarningsPerShare {...props} />);
     expect(getByText("Enter the earnings per share...")).toBeTruthy();
     expect(getByText("Clear value")).toBeTruthy();
     expect(getByText("$ 0")).toBeTruthy();

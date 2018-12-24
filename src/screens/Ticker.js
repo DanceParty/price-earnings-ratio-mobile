@@ -27,7 +27,7 @@ const Search = styled.TextInput`
 const Content = styled.Text`
   font-size: 18px;
   font-weight: 500;
-  color: ${textBlack}
+  color: ${textBlack};
   text-align: center;
   flex-wrap: wrap;
 `;
@@ -78,6 +78,7 @@ class Ticker extends React.Component {
             selectionColor={textBlack}
             onEndEditing={this.onSearch}
             autoCorrect={false}
+            testID="search-input"
           />
         </Header>
         <Body>

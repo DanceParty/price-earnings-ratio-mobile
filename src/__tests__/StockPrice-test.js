@@ -15,7 +15,7 @@ function createProps(props) {
 describe("Stock Price - Calculator", () => {
   test("entering a value and pressing next", () => {
     const props = createProps({});
-    const { getByText, getByTestId, debug } = render(<StockPrice {...props} />);
+    const { getByText, getByTestId } = render(<StockPrice {...props} />);
     expect(getByText("Enter the current stock price...")).toBeTruthy();
     expect(getByText("Clear value")).toBeTruthy();
     expect(getByText("$ 0")).toBeTruthy();
@@ -35,7 +35,7 @@ describe("Stock Price - Calculator", () => {
 
   test("entering a value and pressing clear value", () => {
     const props = createProps({});
-    const { getByText, getByTestId, debug } = render(<StockPrice {...props} />);
+    const { getByText, getByTestId } = render(<StockPrice {...props} />);
     expect(getByText("Enter the current stock price...")).toBeTruthy();
     expect(getByText("Clear value")).toBeTruthy();
     expect(getByText("$ 0")).toBeTruthy();
