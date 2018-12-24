@@ -13,7 +13,16 @@ export const text = {
     secondaryText: "Clear value"
   },
   results: {
-    subtitle: "Price Earnings Ratio"
+    subtitle: "Price Earnings Ratio",
+    body: {
+      intro: (company, priceEarningsRatio) =>
+        `According to Investopedia, ${company} price-earnings ratio of ${priceEarningsRatio} is considered`,
+      rangeLow: "lower",
+      rangeHigh: "higher",
+      rangeMid: "average",
+      end:
+        "than the market average. This can mean that the stock is currently overvalued, or investors are expecting higher earnings in the future."
+    }
   },
   buttons: {
     eps: "I have the earnings per share",

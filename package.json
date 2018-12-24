@@ -22,7 +22,7 @@
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
     "jest-expo": "^31.0.0",
-    "react-native-testing-library": "^1.4.2",
+    "react-native-testing-library": "^1.5.0",
     "react-test-renderer": "^16.7.0"
   }
 }
