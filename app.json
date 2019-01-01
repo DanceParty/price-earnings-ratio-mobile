@@ -1,27 +1,51 @@
 {
   "expo": {
-    "name": "price-earnings-ratio-calulator",
-    "description": "This project is really great.",
+    "name": "Price-Earnings Ratio Calculator",
+    "description": "An application used for generating or calculating the Price Earnings Ratio for any publicly traded company.",
     "slug": "price-earnings-ratio-calulator",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "primaryColor": "#8FC9FF",
+    "icon": "./assets/Icon1024x1024.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#282828"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 30000
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.keevandance.priceearningsratiocalculator",
+      "buildNumber": "1.0",
+      "icon": "./assets/Icon1024x1024.png",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#282828"
+      }
+    },
+    "android": {
+      "package": "com.keevandance.priceearningsratiocalculator",
+      "versionCode": 1,
+      "icon": "./assets/Icon1024x1024.png",
+      "splash": {
+        "backgroundColor": "#282828",
+        "resizeMode": "contain",
+        "ldpi": "./assets/splash.png",
+        "mdpi": "./assets/splash.png",
+        "hdpi": "./assets/splash.png",
+        "xhdpi": "./assets/splash.png",
+        "xxhdpi": "./assets/splash.png",
+        "xxxhdpi": "./assets/splash.png"
+      }
     }
   }
 }
