@@ -25,7 +25,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.keevandance.priceearningsratiocalculator",
       "buildNumber": "1.0",
-      "icon": "./assets/Icon1024x1024.png",
+      "icon": "./assets/Icon1024x1024ops.png",
       "splash": {
         "image": "./assets/splash.png",
         "resizeMode": "contain",
